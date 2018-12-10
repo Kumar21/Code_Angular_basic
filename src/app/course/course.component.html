@@ -1,4 +1,47 @@
-<h2>{{courses.length}} Course</h2>
+<h4>{{courses.length}} Course</h4>
+
+<!-- String interpolation -->
+<img src="{{imageurl}}" width="100px"> 
+
+<!-- Property Binding  //it works in only one way from component to DOM-->
+<span><img [src]="wikkiImage" width="50px" alt=""></span>
+
+<!-- Adding bootstrap -->
+<span><button style="height:30px;" class="btn btn-primary">Bootstrap Added</button></span>
+
+<!-- Class Binding -->
+<span><button style="height:30px;" class="btn btn-success" [class.active]="isActiveClassBinding">Class Binding</button></span>
+
+<!-- style Binding -->
+<span><button style="height:30px;" [style.backgroundColor]="isActiveClassBinding ? 'orange': 'red'">style Binding</button></span>
+
+<!-- Event Binding -->
+<br><div (click)="onDivClicked()">
+  <button (click)="onSave($event)">Event Binding Click</button></div>
+
+<!-- Event Filter  JS to Angular-->
+<input type="text" (keyup)="onKeyUpEvent($event)" placeholder="Eventfilter JS">
+ <span> <input type="text" (keyup.enter)="onKeyUp()"placeholder="Eventfilter Angular"></span>
+
+<!-- Template variables  JS to Angular-->
+<input type="text" #email (keyup.enter)="onKeyUpEmail(email.value)" placeholder="get email Angular">
+<input type="text" (keyup)="onKeyUpEventValue($event)" placeholder="type for paragraph">
+<p>{{targetvalue}}</p>
+
+<!-- Tow way binding [()]-->
+<input [(ngModel)]="email1" (keyup.enter)="onKeyUpTowWay()"/>
+
+<br/><div class="well">
+  {{courseData.title |uppercase}}<br/>
+  {{courseData.rating | number}}<br/>
+  {{courseData.students | number:'2.1-1'}}<br/>
+  {{courseData.price | currency:'INR'}}<br/>
+  {{courseData.releaseDAte |date:'shortDate'}}<br/>
+</div>
+
+<!--custom Pipes-->
+<p>{{PipesText |summary :40}}</p>
+
 <ul>
   <li *ngFor="let cour of courses">{{cour}}{{courses.indexOf(cour)}}</li>
 </ul>
