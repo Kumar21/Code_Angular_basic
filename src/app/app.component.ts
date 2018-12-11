@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MINION WORLD';
+
+  post = {
+    title:"Title",
+    isFav:true
+  }
 }

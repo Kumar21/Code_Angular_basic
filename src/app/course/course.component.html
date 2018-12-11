@@ -42,6 +42,9 @@
 <!--custom Pipes-->
 <p>{{PipesText |summary :40}}</p>
 
+<!-- Title Case Pipe-->
+<input type="text" [(ngModel)]="TitleCaseText" placeholder="Type here" >
+<p>{{TitleCaseText | titleCase}}</p>
 <ul>
   <li *ngFor="let cour of courses">{{cour}}{{courses.indexOf(cour)}}</li>
 </ul>
