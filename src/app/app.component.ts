@@ -13,6 +13,11 @@ export class AppComponent {
     title:"Title",
     isFav:true
   }
+  tweet={
+    body:'body of tweet',
+    isLiked:false,
+    likeCount:0
+  }
   onFavoriteChange(eventArgs:FavouriteChangeEventArgs){
     console.log("Favourite target is clicked",eventArgs);
   }
