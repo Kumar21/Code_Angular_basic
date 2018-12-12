@@ -6,4 +6,12 @@
 </div>
 <app-course></app-course>
 <router-outlet></router-outlet>
-<favorite [is-fav]="post.isFav"></favorite>
+<favorite [is-fav]="post.isFav" (change)="onFavoriteChange($event)"></favorite>
+<bootstrap-panel>
+  <div class="heading">This is heading</div>
+  <div class="body">
+    <h2>This is Body</h2>
+    <p>with some text...</p>
+  </div>
+</bootstrap-panel>
+
