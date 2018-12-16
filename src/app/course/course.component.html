@@ -48,3 +48,32 @@
 <ul>
   <li *ngFor="let cour of courses">{{cour}}{{courses.indexOf(cour)}}</li>
 </ul>
+
+<div *ngIf="course.length>0" class="well">Hello ngIf</div>
+<!-- <div *ngIf="course.length==0" class="well">No hello</div>
+<div [hidden]="course.length>0" class="well">Hello ngIf</div>
+<div [hidden]="course.length==0" class="well">No hello</div> -->
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">map View</a></li>
+  <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">list View</a></li></ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'"><h3>Map View content </h3></div>
+  <div *ngSwitchCase="'list'"><h3>List View content </h3></div>
+  <div *ngSwitchDefault><h3>Other View content </h3></div>
+</div>
+
+<ul>
+  <li *ngFor="let course of newCourse ; index as i">index as {{i}} - {{ course.name }} </li>
+</ul>
+<button class="btn btn-success" (click)="AddNewRow()">Add New Row</button>
+<table class="table" border="1px">
+  <tr *ngFor="let course of newCourse; index as i">
+    <td >{{course.id}}</td>
+    <td >{{course.name}}</td>
+    <td><button (click)="removeRow(course)" class="btn btn-warning">Remove Row</button></td>
+  </tr>
+</table>
+<h2>hey man</h2>
+
+<!-- <span>{{task.assignee?.name}}</span> -->

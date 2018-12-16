@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CourseService } from './course.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CourseService } from './course.service';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css'],
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent {
   courses;
   targetvalue="";
   email1= "Shanu@gmail.com";
@@ -53,7 +53,22 @@ export class CourseComponent implements OnInit {
   constructor(service: CourseService) {
     this.courses = service.getCourse()
   }
-  ngOnInit() {
-  }
 
+  course=[1,2,3,4];
+
+  viewMode="map";
+  newRowcount=4
+  newCourse =[
+    {name: "course1",id:101},
+    {name: "course2",id:102},
+    {name: "course3",id:103}
+  ]
+  AddNewRow(){
+    let newRow={name:"course"+this.newRowcount,id:100+this.newRowcount};
+    this.newCourse.push(newRow);
+    this.newRowcount++;
+  }
+  removeRow(course){
+    this.newCourse.splice(this.newCourse.indexOf(course),1);
+  } 
 }

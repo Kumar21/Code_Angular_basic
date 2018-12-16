@@ -1,1 +1,8 @@
-<span (click)="onFavClick()" class="glyphicon" [class.glyphicon-star]="isFav" [class.glyphicon-star-empty]="!isFav" style="font-size: 75px;"></span>
+<span (click)="onFavClick()"
+ class="glyphicon" [class.glyphicon-star]="isFav" 
+ [class.glyphicon-star-empty]="!isFav" style="font-size: 75px;">
+</span>
+<!-- 
+<span (click)="onFavClick()" class="glyphicon"
+[ngClass]="{'glyphicon-star':isFav,'glyphicon-star-empty':!isFav}">
+</span> -->
